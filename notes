@@ -1,0 +1,16 @@
+
+15. Home Property Listing
+  - Create the HomeProperties.jsx and import it in the pages.jsx
+  - Import json file
+  - Create the recentProperties()
+  - Import and implement the <PropertyCard />
+
+16. Custom Not Found and Loading Pages
+- Create the not-found.jsx inside the /app. take note of the letter casing
+- Create the loading.jsx inside /app
+    - Can use here the npm i react-spinners from https://github.com/davidhu2000/react-spinners
+    - don't forget this is a use'use client'
+
+Section 3: Database, API Routes & Property Components
+17. Create MongoDB DataBase
+

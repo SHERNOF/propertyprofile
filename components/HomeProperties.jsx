@@ -33,13 +33,3 @@ const HomeProperties = () => {
 
 export default HomeProperties
 
-
-/*
-15. Home Property Listing
-  - Create the HomeProperties.jsx and import it in the pages.jsx
-  - Import json file
-  - Create the recentProperties()
-  - Import and implement the <PropertyCard />
-
-
-*/
