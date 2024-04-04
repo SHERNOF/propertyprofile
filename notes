@@ -1,16 +1,179 @@
+NEXTJS COURSE
+
+Section 1. Introduction
+
+1. Welcome to the course. Presents a home booking application.
+
+- Notable features
+- Book marking, share to multimedia platforms, internal messaging system,
+  geocoding
+
+2. Property Pulse Demo
+   ⁃ Save data in mongoDB then use google authentication for users
+   ⁃ Search Box function
+   ⁃ Can set the Featured properties to be true or false so that people can pay the site
+   ⁃ Properties displayed is in random
+   ⁃ Property page upon click
+   ⁃ Cloudinary is to be use to store property pictures
+   ⁃ iImplementation of Geolocation of the property
+   ⁃ Use the React SHare for the property
+   ⁃ Implement Pagination and search box
+   ⁃ Bookmarking function
+   ⁃ Contact Property Manager form
+   ⁃ Profile Page
+   ⁃ feature the list of listings
+   ⁃ add and remove bookmark
+   ⁃ Multiple image upload to cloudinary
+   ⁃ Convert the address to lat and long and display it on the map
+
+3. What is NextJS
+
+- React is a Single Page App, while NextJs provide ways for React projects to be server side rendering rather than everything bind in the client
+- NextJs helps to generate static website which is very fast
+-
+
+- Types of websites
+  o Pure Static – difficult to manage as there’s bunch of html files. Need to go to each html if there’s a change needed. Each page is less interactive
+  o SPA (single page rendering) – as it is all loaded by javascript thus making it bad for SEO. It’s fast and dynamic thought
+  o SSR (server side rendering) – Best of both SPA and Static website. It is static which makes it good for SEO and at the same time Javascript makes it interactive. Initial load time is fast
+  o SSG (static site generated) – it will generate html and css files and send it to the browser. This means that the server will not do any work. Good for blogs and portfolios but not good for fast and very dynamic sites
+
+- NextJS Features
+  o File based routing – no need to use react-router. Just create component and put it inside the app folder. It can create nested and dynamic routes
+  o API Routes – can interact with databse with the use of mongoDB and mongoose. No need to use expressJS
+  o React Server Component (RSC) – Reacy components that are rendered in server. Great for SEOs. Faster load time, can handle API keys but cannot use React Hooks
+  o Data fetching even without useEffect
+  o Supports .env (environmental variables) which stores API keys, mongoDB connect strings
+  o Customize head tags, meta tags. Great for SEO
+  o Image optimization – allow to optimize images and utilize lazy loading
+  o Automatic code splitting – resulted to smaller bundles that improves the loading
+  o Typescript support
+  o CSS modules, tailwind, global css files and Support
+  o Fast refresh, instant feedback during development
+
+4. Requires node, editor like vs code, git installed in the computer. Use the github repo upon uploading to Vercel
+   ⁃ VS Extensions
+   ⁃ ES7 React/redux/react-native snippet extension
+   ⁃ Prettier
+   ⁃ Javascript ES6 snippets
+
+Section 2. NextJs fundamentals and project start
+
+5. New project and folder structure
+   ⁃ Resources – theme files
+   ⁃ Create a new project = npx create-next-app@latest. Fill up the question and just disable the eslint and typescript.
+   ⁃ Yes to App Router
+   ⁃ Npm run dev – to run the app
+   ⁃
+   ⁃ Folder structure
+   ⁃
+   ⁃ App is the main folder
+   ⁃ It can contain folders and react component for nesting
+   ⁃ Layout.js – this wrap around everything
+
+⁃ Page.js – the home page
+⁃ Delete the app folder to reconstruct the layout.js and page.js to understand the file structure
+
+6. Layout, homepage and Metadata
+   ⁃ Create the app folder, layout.js and page.js
+   ⁃ Layout.js and page.js are react components that are in the server
+   ⁃ Create a folder named assets > styles > globals.css
+   ⁃ Create the tailwind directives
+   ⁃ Import in the layout.jsx >>> import ‘./assets/styling/global.css.
+   ⁃ Create the meta-data in the layout.js
+   ⁃ Add .env in .gitignore file
+   ⁃ Upload in github
+
+7. File base routing
+   ⁃ No need to install react-router
+   ⁃ Just create folder inside app and create components inside it
+   ⁃ This is one of the best feature of SSR
+   ⁃ Add folder inside the properties folder is a sample of nested routing
+   ⁃ For dynamic route create a folder inside the properties and named it as [id]
+   ⁃ […id], means catch all.
+   ⁃ Import Link from ‘next/link’ – to be use for routing. Same as the Link in react-router dom
+   ⁃ <Link href=’/’>Home</Link>
+
+8. Server vs Client components & Router hooks
+
+- When to use server or client component
+- Server side component is default
+- Add ‘use client’ for client components
+- If console.log is executed in a server component then look the output from the terminal.
+- If console.log is executed in a client component then look the output from the browser.
+- Import { useRouter } from ‘next/navigation’
+- useRouter
+
+- It brings it to the Home Page
+- useParams – use to get the id from URL
+
+  - This will display the id in the button
+  - Provided that there’s an id in th euRL
+
+- useSearchParams
+
+  - Displays the name in the button provided that there’s a name=xxxx in the url
+
+- usePathName
+  - Displays the pathname in the button from the URL
+
+9. Navbar
+   ⁃ Create the folder components outside app folder. This are for the components not the pages
+   ⁃ Create the Navbar.jsx
+   ⁃ Define the html
+   ⁃ Put the images in the assets folder
+   ⁃ Import Navbar.jsx in the layout.js
+10. Navbar links, dropdowns and react icons
+    o Import Link from ‘next/link’ to replace a tag with Link and set the href to ‘/’ and properties.htmkl to href=’properties’
+    o For sign out changed the a tag to button
+    o For login or logout button use react icons npm I react-icons.
+
+o For the mobile menu button (dropdown)
+ Create a useState (ismobileMenuOpen) to bring a toggle functionality to mobile dropdown. Set the navbar to ‘use client’ As this will now be a client not server component
+ Create a onCLick(() => setisMobileMenuOpen(true)). Use the isMobileMenuOpen state to toggle the appearance of the id=’mobile-menu’
+ Do it similarly with the id=user-menu’ create a useState isProfileMenuOpen to toggle the appearance of the profile menu
+
+11. Active links and Conditional Rendering
+    ⁃ Make the black box be set to the link being click
+    ⁃ Make The Login or Register Button as well as the Add Property button to be conditionally rendered. It will only render if the user is logon
+    ⁃ Use usePathname to get the pathname and use it as a state to determine have a conditional appearance of each button (Home, Property, Add Property)
+    ⁃ Conditional render for Add Property, Profile Image and Message buttons if login or not
+    ⁃ Create the isloggedIn state
+    ⁃ If isloggedIn is false, do not display the Add Property, Profile Image and Message Buttons and vice versa
+    ⁃ If isloggedIn is true, display the Login or Register button and vice versa
+
+12. Homepage Components
+    ⁃ Create the Hero, reusable Info boxes and footer
+    ⁃ Create the Hero.jsx component and import it to the main page.jsx
+    ⁃ Create the InfoBoxes.jsx Component
+    ⁃ Create a. reusable InfoBox.jsx component
+    ⁃ Make it dynamic by using the object created
+    ⁃ Use this component to the InfoBoxes.jsx
+    ⁃ Create the footer
+
+13. Properties Page
+    ⁃ Temporarily used the properties.json to display the properties details
+    ⁃ Code the page.jsx inside the app/properties
+    ⁃ Import properties from ‘@/properties.json’
+    ⁃ Create a conditional rendering for the properties
+14. Property Card Dynamic Data
+    ⁃ Create the PropertyCard.jsx and import in the /app/properties/page.jsx
+    ⁃ Pass the property={property} as props
+    ⁃ Use the props in the PropertyCard.jsx and make the supply the dynamic data from {property}
+    ⁃ Create a function (getRatesDisplay()) to display the rate mode (monthly, weekly, nightlhy)
 
 15. Home Property Listing
-  - Create the HomeProperties.jsx and import it in the pages.jsx
-  - Import json file
-  - Create the recentProperties()
-  - Import and implement the <PropertyCard />
+
+- Create the HomeProperties.jsx and import it in the pages.jsx
+- Import json file
+- Create the recentProperties()
+- Import and implement the <PropertyCard />
 
 16. Custom Not Found and Loading Pages
+
 - Create the not-found.jsx inside the /app. take note of the letter casing
 - Create the loading.jsx inside /app
-    - Can use here the npm i react-spinners from https://github.com/davidhu2000/react-spinners
-    - don't forget this is a use'use client'
+  - Can use here the npm i react-spinners from https://github.com/davidhu2000/react-spinners
+  - don't forget this is a use'use client'
 
-Section 3: Database, API Routes & Property Components
-17. Create MongoDB DataBase
-
+Section 3: Database, API Routes & Property Components 17. Create MongoDB DataBase
