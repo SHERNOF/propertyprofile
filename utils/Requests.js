@@ -17,7 +17,7 @@ async function fetchProperties() {
   }
 }
 
-async function fetchProperty() {
+async function fetchProperty(id) {
   try {
     // handle the domain if not yet available
     if (!apiDomain) {
