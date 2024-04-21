@@ -2,6 +2,8 @@ import connectDb from "@/config/db";
 import User from "@/models/User";
 
 import GoogleProvider from "next-auth/providers/google";
+import { signIn } from "next-auth/react";
+
 export const authOptions = {
   providers: [
     GoogleProvider({
@@ -26,7 +28,7 @@ export const authOptions = {
       // 3. if not then ssve user to db
       if (!userExist) {
         // truncate username if too long
-        const username = profile.name.slice(0, 12);
+        const username = profile.name.slice(0, 20);
 
         await User.create({
           email: profile.email,
@@ -42,7 +44,7 @@ export const authOptions = {
       // 1. get user from db
       const user = await User.findOne({ email: session.user.email });
       // 2. Assign the user id to session
-      session.iser.id = user._id.toString();
+      session.user.id = user._id.toString();
       // 3. return session
       return session;
     },
