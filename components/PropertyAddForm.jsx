@@ -19,9 +19,9 @@ export const PropertyAddForm = () => {
     square_feet: "1500",
     amenities: [],
     rates: {
+      nightly: "",
       weekly: "1100",
       monthly: "4200",
-      nightly: "",
     },
     seller_info: {
       name: "John Doe",
@@ -30,6 +30,7 @@ export const PropertyAddForm = () => {
     },
     images: [],
   });
+  console.log(fields);
 
   useEffect(() => {
     setmounted(true);
@@ -449,6 +450,20 @@ export const PropertyAddForm = () => {
           </label>
           <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
             <div className="flex items-center">
+              <label htmlFor="nightly_rate" className="mr-2">
+                Nightly
+              </label>
+              <input
+                type="number"
+                id="nightly_rate"
+                name="rates.nightly"
+                className="border rounded w-full py-2 px-3"
+                value={fields.rates.nightly}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="flex items-center">
               <label htmlFor="weekly_rate" className="mr-2">
                 Weekly
               </label>
@@ -471,19 +486,6 @@ export const PropertyAddForm = () => {
                 name="rates.monthly"
                 className="border rounded w-full py-2 px-3"
                 value={fields.rates.monthly}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="flex items-center">
-              <label htmlFor="nightly_rate" className="mr-2">
-                Nightly
-              </label>
-              <input
-                type="number"
-                id="nightly_rate"
-                name="rates.nightly"
-                className="border rounded w-full py-2 px-3"
-                value={fields.rates.nightly}
                 onChange={handleChange}
               />
             </div>

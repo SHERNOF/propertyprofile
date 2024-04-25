@@ -1,6 +1,7 @@
 import Property from "@/models/Property";
 import connectDb from "@/config/db";
 import { getSessionUser } from "@/utils/getSessionUser";
+import cloudinary from "@/config/cloudinary";
 
 // GET /api/properties
 export const GET = async (request) => {
@@ -60,9 +61,9 @@ export const POST = async (request) => {
       square_feet: formData.get("square_feet"),
       amenities,
       rates: {
-        nightly: formData.get("nightly"),
-        weekly: formData.get("weekly"),
-        monthly: formData.get("monthly"),
+        nightly: formData.get("rates.nightly"),
+        weekly: formData.get("rayes.weekly"),
+        monthly: formData.get("rates.monthly"),
       },
       seller_info: {
         name: formData.get("seller_info.name"),
@@ -72,6 +73,29 @@ export const POST = async (request) => {
       owner: userId,
       // images,
     };
+    // upload images to cloudinary
+
+    const imagesUploadPromises = [];
+    for (image of images) {
+      const imageBuffer = await image.arrayBuffer();
+      const imageArray = Array.from(new Uint8Array(imageBuffer));
+      const imageData = Buffer.from(imageArray);
+
+      // convert imageData to Base 64
+      const imageBase64 = imageData.toString("base64");
+
+      // make request to upload to cloudinary
+      const result = await cloudinary.uploader.upload(
+        `data:image/png;base64,${imageBase64}`,
+        { folder: "propertypulse" }
+      );
+      imagesUploadPromises.push(result.secure_url);
+      // wait for all images to upload
+      const uploadedImages = await Promise.all(imagesUploadPromises);
+      // add uploaded images to propertyData object
+      propertyData.images = uploadedImages;
+    }
+
     // console.log(propertyData);
     // return new Response(JSON.stringify({ message: "Success" }), {
     //   status: 200,
