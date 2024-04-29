@@ -1,13 +1,14 @@
 "use client";
-import { PropertyDetails } from "@/components/PropertyDetails";
 import PropertyHeaderImage from "@/components/PropertyHeaderImage";
-import PropertyInfo from "@/components/PropertyInfo";
+// import PropertyInfo from "@/components/1PropertyInfo";
+import PropertyDetails from "@/components/PropertyDetails";
 import { fetchProperty } from "@/utils/Requests";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import React from "react";
 import { useEffect, useState } from "react";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import PropertyImages from "@/components/PropertyImages";
 
 // async function fetchProperty() {
 //   try {
@@ -71,8 +72,8 @@ const PropertyPage = () => {
               </Link>
             </div>
           </section>
-          {/* <PropertyDetails property={property} /> */}
-          <PropertyInfo property={property} />
+          <PropertyDetails property={property} />
+          <PropertyImages images={property.images} />
         </>
       )}
     </>
