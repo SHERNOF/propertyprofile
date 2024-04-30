@@ -4,29 +4,28 @@ import React, { useEffect, useState } from "react";
 export const PropertyAddForm = () => {
   const [mounted, setmounted] = useState(false);
   const [fields, setfields] = useState({
-    type: "Apartment",
-    description:
-      "This is a beautiful apartment located near the commons. It is a 2 bedroom apartment with a full kitchen and bathroom. It is available for weekly or monthly rentals.",
+    type: "",
+    description:"",
     location: {
-      street: "120 Tremont Street",
-      city: "Boston",
-      state: "MA",
-      zipcode: "02108",
+      street: '',
+      city: '',
+      state: '',
+      zipcode: '',
     },
 
-    beds: "2",
-    baths: "1",
-    square_feet: "1500",
+    beds: '',
+    baths: '',
+    square_feet: '',
     amenities: [],
     rates: {
       nightly: "",
-      weekly: "1100",
-      monthly: "4200",
+      weekly: '',
+      monthly: '',
     },
     seller_info: {
-      name: "John Doe",
-      email: "john@gmail.com",
-      phone: "617-555-5555",
+      name: '',
+      email: '',
+      phone: '',
     },
     images: [],
   });
