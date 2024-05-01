@@ -31,7 +31,7 @@ const PropertyPage = () => {
   const { id } = useParams();
   const [property, setproperty] = useState(null);
   const [loading, setloading] = useState(true);
-  console.log("The Property is: ", property);
+  // console.log("The Property is: ", property);
 
   useEffect(() => {
     const fetchPropertyData = async () => {
@@ -47,7 +47,7 @@ const PropertyPage = () => {
     };
     if (property === null) {
       fetchPropertyData();
-      console.log(property);
+      // console.log(property);
     }
   }, [id, property]);
   if (!property && !loading) {
