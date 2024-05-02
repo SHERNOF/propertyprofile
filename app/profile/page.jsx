@@ -5,6 +5,7 @@ import profileDefault from "../assets/images/profile.png";
 import { useSession } from 'next-auth/react';
 import { useState, useEffect } from 'react'
 import Spinner from '@/components/Spinner';
+import { toast } from 'react-toastify';
 
 const ProfilePage = () => {
     const { data: session } = useSession();
@@ -23,7 +24,6 @@ const ProfilePage = () => {
           if(res.status===200){
             const data = await res.json()
             setproperties(data)
-            
           }
         } catch (error) {
           console.log(error)
@@ -42,18 +42,17 @@ const ProfilePage = () => {
       if(!confirmed) return
       try {
         const res = await fetch(`/api/properties/${propertyId}`, { method: 'DELETE' })
-        if(res.status = 200){
+        if(res.status === 200){
           // Remove property from state
           const updatedProperties = properties.filter((property)=> property._id !== propertyId)
             setproperties(updatedProperties)
-            alert('Property DEleted');
-          
+            toast('Property DEleted', {theme: "colored",});
         }else{
-          alert('Failed to delete property')
+          toast('Failed to delete property')
         }
       } catch (error) {
         console.log(error)
-        alert('failed to delete')
+        toast('failed to delete')
       }
     }
   return (

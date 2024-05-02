@@ -7,6 +7,8 @@ export const metadata = {
   description: "Find your dream rental property",
   keywords: "find rentals, find rentals, find properties",
 };
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MainLayout = ({ children }) => {
   return (
@@ -16,6 +18,7 @@ const MainLayout = ({ children }) => {
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <ToastContainer />
         </body>
       </html>
     </AuthProvider>
