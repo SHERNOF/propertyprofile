@@ -116,15 +116,15 @@ const PropertyDetails = ({ property }) => {
                 Contact Property Manager
               </h3>
               <form>
-                <div classNameName="mb-4">
+                <div className="mb-4">
                   <label
-                    classNameName="block text-gray-700 text-sm font-bold mb-2"
+                    className="block text-gray-700 text-sm font-bold mb-2"
                     htmlFor="name"
                   >
                     Name:
                   </label>
                   <input
-                    classNameName="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="name"
                     type="text"
                     placeholder="Enter your name"
@@ -146,15 +146,15 @@ const PropertyDetails = ({ property }) => {
                     required
                   />
                 </div>
-                <div classNameName="mb-4">
+                <div className="mb-4">
                   <label
-                    classNameName="block text-gray-700 text-sm font-bold mb-2"
+                    className="block text-gray-700 text-sm font-bold mb-2"
                     htmlFor="phone"
                   >
                     Phone:
                   </label>
                   <input
-                    classNameName="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="phone"
                     type="text"
                     placeholder="Enter your phone number"
