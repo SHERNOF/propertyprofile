@@ -18,7 +18,7 @@ export const PropertyAddForm = () => {
     square_feet: '',
     amenities: [],
     rates: {
-      nightly: "",
+      nightly: '',
       weekly: '',
       monthly: '',
     },
@@ -29,7 +29,6 @@ export const PropertyAddForm = () => {
     },
     images: [],
   });
-  console.log(fields);
 
   useEffect(() => {
     setmounted(true);
@@ -275,7 +274,7 @@ export const PropertyAddForm = () => {
                 name="amenities"
                 value="Full Kitchen"
                 className="mr-2"
-                checked={fields.amenities.includes("Kitchen")}
+                checked={fields.amenities.includes("Full Kitchen")}
                 onChange={handleAmenitiesChange}
               />
               <label htmlFor="amenity_kitchen">Full kitchen</label>
@@ -287,7 +286,7 @@ export const PropertyAddForm = () => {
                 name="amenities"
                 value="Washer & Dryer"
                 className="mr-2"
-                checked={fields.amenities.includes("Washer and Dryer")}
+                checked={fields.amenities.includes("Washer & Dryer")}
                 onChange={handleAmenitiesChange}
               />
               <label htmlFor="amenity_washer_dryer">Washer & Dryer</label>
@@ -448,6 +447,34 @@ export const PropertyAddForm = () => {
             Rates (Leave blank if not applicable)
           </label>
           <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+            
+            <div class="flex items-center">
+                <label htmlFor="weekly_rate" class="mr-2">Weekly</label>
+                <input
+                  type='number'
+                  id='weekly_rate'
+                  name='rates.weekly'
+                  className="border rounded w-full py-2 px-3"
+                  value={fields.rates.weekly}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+        
+            <div className="flex items-center">
+              <label htmlFor="monthly_rate" className="mr-2">
+                Monthly
+              </label>
+              <input
+                type="number"
+                id="monthly_rate"
+                name="rates.monthly"
+                className="border rounded w-full py-2 px-3"
+                value={fields.rates.monthly}
+                onChange={handleChange}
+              />
+            </div>
+
             <div className="flex items-center">
               <label htmlFor="nightly_rate" className="mr-2">
                 Nightly
@@ -462,32 +489,6 @@ export const PropertyAddForm = () => {
               />
             </div>
 
-            <div className="flex items-center">
-              <label htmlFor="weekly_rate" className="mr-2">
-                Weekly
-              </label>
-              <input
-                type="number"
-                id="weekly_rate"
-                name="rates.weekly"
-                className="border rounded w-full py-2 px-3"
-                value={fields.rates.weekly}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="flex items-center">
-              <label htmlFor="monthly_rate" className="mr-2">
-                Monthly
-              </label>
-              <input
-                type="number"
-                id="monthly_rate"
-                name="rates.monthly"
-                className="border rounded w-full py-2 px-3"
-                value={fields.rates.monthly}
-                onChange={handleChange}
-              />
-            </div>
           </div>
         </div>
 
@@ -501,7 +502,7 @@ export const PropertyAddForm = () => {
           <input
             type="text"
             id="seller_name"
-            name="seller_info.name."
+            name="seller_info.name"
             className="border rounded w-full py-2 px-3"
             placeholder="Name"
             value={fields.seller_info.name}
