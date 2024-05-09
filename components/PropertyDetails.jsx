@@ -9,7 +9,6 @@ import {
 } from "react-icons/fa";
 
 const PropertyDetails = ({ property }) => {
-  console.log(property)
   return (
     <section className="bg-blue-50">
       <div className="container m-auto py-10 px-6">
