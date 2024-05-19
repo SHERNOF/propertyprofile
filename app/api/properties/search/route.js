@@ -35,7 +35,6 @@ export const GET = async (request) => {
     const properties = await Property.find(query);
 
     return new Response(JSON.stringify(properties), {
-      // return new Response(JSON.stringify({message: 'success'}), {
       status: 200,
     });
   } catch (error) {
