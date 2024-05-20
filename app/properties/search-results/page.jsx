@@ -9,7 +9,6 @@ import PropertySearchForm from '@/components/PropertySearchForm';
 
 const SearchResultsPage = () => {
   const searchParams = useSearchParams();
-
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
 
