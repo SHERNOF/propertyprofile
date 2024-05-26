@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import AuthProvider from "@/components/AuthProvider";
+import { GlobalProvider } from "@/context/GlobalContext";
 import "./assets/styling/global.css";
 export const metadata = {
   title: "Property Pulse | Find the perfect place",
@@ -12,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const MainLayout = ({ children }) => {
   return (
+    <GlobalProvider>
     <AuthProvider>
       <html lang="en">
         <body>
@@ -22,6 +24,7 @@ const MainLayout = ({ children }) => {
         </body>
       </html>
     </AuthProvider>
+    </GlobalProvider>
   );
 };
 

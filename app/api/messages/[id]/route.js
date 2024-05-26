@@ -1,4 +1,4 @@
-import connectDB from '@/config/database';
+import connectDb from '@/config/db';
 import Message from '@/models/Message';
 import { getSessionUser } from '@/utils/getSessionUser';
 
@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 // PUT /api/messages/:id
 export const PUT = async (request, { params }) => {
   try {
-    await connectDB();
+    await connectDb();
 
     const { id } = params;
 
@@ -45,7 +45,7 @@ export const PUT = async (request, { params }) => {
 // DELETE /api/messages/:id
 export const DELETE = async (request, { params }) => {
   try {
-    await connectDB();
+    await connectDb();
 
     const { id } = params;
 

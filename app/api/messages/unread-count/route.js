@@ -1,4 +1,4 @@
-import connectDB from '@/config/database';
+import connectDb from '@/config/db';
 import Message from '@/models/Message';
 import { getSessionUser } from '@/utils/getSessionUser';
 
@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 // GET /api/messages/unread-count
 export const GET = async (request) => {
   try {
-    await connectDB();
+    await connectDb();
 
     const sessionUser = await getSessionUser();
 

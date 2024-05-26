@@ -9,6 +9,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import PropertyImages from "@/components/PropertyImages";
+import { PropertyContactForm } from "@/components/PropertyContactForm";
 
 // async function fetchProperty() {
 //   try {
@@ -74,6 +75,7 @@ const PropertyPage = () => {
           </section>
           <PropertyDetails property={property} />
           <PropertyImages images={property.images} />
+          <PropertyContactForm property={property}/>
         </>
       )}
     </>
