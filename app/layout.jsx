@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import AuthProvider from "@/components/AuthProvider";
 import { GlobalProvider } from "@/context/GlobalContext";
 import "./assets/styling/global.css";
+import 'photoswipe/dist/photoswipe.css';
+
 export const metadata = {
   title: "Property Pulse | Find the perfect place",
   description: "Find your dream rental property",
