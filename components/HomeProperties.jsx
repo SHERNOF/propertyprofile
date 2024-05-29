@@ -7,8 +7,12 @@ import { fetchProperties } from "@/utils/Requests";
 const HomeProperties = async () => {
   // to fix the error after pagination
   // const properties = await fetchProperties();
-  const data = await fetchProperties();
+  // const data = await fetchProperties();
   // const recentProperties = properties
+  // const recentProperties = data.properties.sort(() => Math.random() - Math.random())
+  //   .slice(0, 3);
+
+  const data = await fetchProperties();
   const recentProperties = data.properties
     .sort(() => Math.random() - Math.random())
     .slice(0, 3);
